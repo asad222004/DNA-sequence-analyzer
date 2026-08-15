@@ -7,6 +7,8 @@ from analyzer import  ATratio
 from analyzer import  complt
 from analyzer import  reverseCOMPLT
 from analyzer import  RNA
+from analyzer import  GCskew
+from analyzer import  ATskew
 
 seq = input("enter your DNA sequence here:\n ") 
 # accept the DNA sequence from the user
@@ -36,8 +38,14 @@ if valid == True:
     GCratio = GCratio(G,C, seqLEN)
     print(f"The GC ratio is\n=> {GCratio}\n")
     print("------------------------------------------\n")
-    ATratio=ATratio(A, T, seqLEN)
-    print(f"The ATratio is\n=> {ATratio}\n")
+    GCskew =GCskew(G,C)
+    print(f"The GC skew is\n=> {GCskew}\n")
+    print("------------------------------------------\n")
+    ATratio = ATratio(A,T, seqLEN)
+    print(f"The AT ratio is\n=> {ATratio}\n")
+    print("------------------------------------------\n")
+    ATskew = ATskew(A, T)
+    print(f"The AT skew is\n=> {ATskew}\n")
     print("------------------------------------------\n")
     complement=complt(seqNEW)
     print(f"The complement strand is\n=>{complement}\n")

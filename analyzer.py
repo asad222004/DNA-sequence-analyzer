@@ -64,3 +64,12 @@ def reverseCOMPLT(seqNEW):
             reverseComplement+='G'       
     return reverseComplement
 
+# Function for GC skew calculation
+def GCskew(G,C):
+    GCskew = (G-C)/(G+C)
+    return GCskew
+
+# Function for AT skew calculation
+def ATskew(A,T):
+    ATskew = (A-T)/(A+T)
+    return ATskew
