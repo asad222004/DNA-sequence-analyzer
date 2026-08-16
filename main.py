@@ -16,6 +16,7 @@ seq = input("enter your DNA sequence here:\n ")
 seqNEW = seq.upper()
  # changes the sequence to uppercase to avoid errors in the analysis
 
+
 Bases = ['A','G','C','T']
 valid = False 
 
@@ -24,12 +25,13 @@ for base in seqNEW:
     if base in Bases:
         valid = True
 if valid == True:
-    seqLEN = length(seqNEW) 
+    
 
     print("---------------------------------\n")
     print("    DNA Sequence Analysis")
     print("---------------------------------\n")
     #calling to different functions to perform the analysis and print the results
+    seqLEN = length(seqNEW) 
     print(f"The length of the sequence is:\n=> {seqLEN}\n")
     print("------------------------------------------\n")
     A,G,C,T= (AGCTcontent(seqNEW))
@@ -58,4 +60,4 @@ if valid == True:
     print("------------------------------------------\n")
 
 else:
-    print("Invalid DNA sequence. Please enter a valid sequence containing only A, G, C, and T.")
+    print("The sequence is invalid. Please enter a valid DNA sequence containing only A, G, C, and T.")

@@ -1,3 +1,11 @@
+#cleaning the seqeuence to remove any invalid characters
+def clean(seqNEW):
+    cleaned_seq = ''
+    for base in seqNEW:
+        if base in ['A', 'G', 'C', 'T']:
+            cleaned_seq += base
+    return cleaned_seq
+
 # A function which calculates the content of A, G, C and T in a DNA sequence
 def AGCTcontent(seqNEW):
     A = 0
