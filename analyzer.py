@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 #cleaning the seqeuence to remove any invalid characters
 def clean(seqNEW):
     cleanSEQ = ''
@@ -23,6 +25,17 @@ def AGCTcontent(cleanSEQ):
             T+=1
     return A,G,C,T         
 
+# function to make the graph of AGCT content
+def graph_AGCT(A, G, C, T):
+    X =['A','G','C','T']
+    Y =[A, G, C, T]
+    plt.bar(X,Y)
+    plt.xlabel("Nucleotides")
+    plt.ylabel("Content")
+    plt.title("AGCT content Graph")
+    plt.grid()
+    plt.show()
+
 # function for length of the sequence
 def length(cleanSEQ):
     seqLEN = len(cleanSEQ)
@@ -30,13 +43,25 @@ def length(cleanSEQ):
 
 # Function for GC ratio calculation
 def GCratio( G,C, seqLEN):
-    GCratio = (( G + C) /seqLEN)*100
-    return GCratio
+    GC_ratio = (( G + C) /seqLEN)*100
+    return GC_ratio
 
 # Function to check AT ratio
 def ATratio(A,T, seqLEN):
-    ATratio = ((A+T)/seqLEN)*100
-    return ATratio
+    AT_ratio = ((A+T)/seqLEN)*100
+    return AT_ratio
+
+# Function to make the chart of AT and GC ratio
+def graph_AT_GC_content(AT_ratio, GC_ratio):
+    X = ["ATratio", "GCratio"]
+    Y = [AT_ratio, GC_ratio]
+    plt.bar(X,Y)
+    plt.xlabel("ATratio")
+    plt.ylabel("GCratio")
+    plt.title("ratios graph")
+    plt.grid()
+    plt.show()
+
 
 # Function for making complement
 def complt(cleanSEQ):
@@ -100,6 +125,11 @@ def call_analysis(seq):
     A,G,C,T= (AGCTcontent(cleanSEQ))
     print(f"Adenine is => {A}\nGuanine is => {G}\nCytosine is => {C}\nThymine is => {T}\n")
     print("------------------------------------------\n")
+    
+    print("------------------------------------------\n")
+
+
+
     GC_ratio = GCratio(G,C, seqLEN)
     print(f"The GC ratio is\n=> {GC_ratio}\n")
     print("------------------------------------------\n")
@@ -108,9 +138,12 @@ def call_analysis(seq):
     print("------------------------------------------\n")
     AT_ratio = ATratio(A,T, seqLEN)
     print(f"The AT ratio is\n=> {AT_ratio}\n")
+    
     print("------------------------------------------\n")
     AT_skew = ATskew(A, T)
     print(f"The AT skew is\n=> {AT_skew}\n")
+    print("-------------------------------------------\n")
+   
     print("------------------------------------------\n")
     complement=complt(cleanSEQ)
     print(f"The complement strand is\n=>{complement}\n")
@@ -121,4 +154,5 @@ def call_analysis(seq):
     RNAseq = RNA(cleanSEQ)
     print(f"Its RNA strand is:\n=>{RNAseq}\n")
     print("------------------------------------------\n")
-
+    graph_AT_GC_content(AT_ratio, GC_ratio)
+    graph_AGCT(A,G,C,T)
