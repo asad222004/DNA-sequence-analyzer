@@ -53,14 +53,13 @@ def ATratio(A,T, seqLEN):
 
 # Function to make the chart of AT and GC ratio
 def graph_AT_GC_content(AT_ratio, GC_ratio):
-    X = ["ATratio", "GCratio"]
-    Y = [AT_ratio, GC_ratio]
-    plt.bar(X,Y)
-    plt.xlabel("ATratio")
-    plt.ylabel("GCratio")
-    plt.title("ratios graph")
-    plt.grid()
+    values =[AT_ratio, GC_ratio]
+    labels = ['AT ratio', 'GC ratio']
+    plt.pie(values , labels=labels, autopct="%1.1f%%")
+    plt.title("AT and GC ratios")
     plt.show()
+
+
 
 
 # Function for making complement
